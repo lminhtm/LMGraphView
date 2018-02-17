@@ -3,7 +3,6 @@ LMGraphView
 LMGraphView is a simple and customizable graph view for iOS.
 
 <img src="https://raw.github.com/lminhtm/LMGraphView/master/Screenshots/screenshot1.png"/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://raw.github.com/lminhtm/LMGraphView/master/Screenshots/screenshot2.png"/>
 
 ## Features
@@ -29,17 +28,17 @@ You can easily integrate the LMGraphView with a few lines of code. For an exampl
 ```ObjC
 LMLineGraphView *graphView = [[LMLineGraphView alloc] initWithFrame:frame];
 graphView.xAxisValues = @[@{ @1 : @"JAN" },
-@{ @2 : @"FEB" },
-@{ @3 : @"MAR" },
-@{ @4 : @"APR" },
-@{ @5 : @"MAY" },
-@{ @6 : @"JUN" },
-@{ @7 : @"JUL" },
-@{ @8 : @"AUG" },
-@{ @9 : @"SEP" },
-@{ @10 : @"OCT" },
-@{ @11 : @"NOV" },
-@{ @12 : @"DEC" }];
+                          @{ @2 : @"FEB" },
+                          @{ @3 : @"MAR" },
+                          @{ @4 : @"APR" },
+                          @{ @5 : @"MAY" },
+                          @{ @6 : @"JUN" },
+                          @{ @7 : @"JUL" },
+                          @{ @8 : @"AUG" },
+                          @{ @9 : @"SEP" },
+                          @{ @10 : @"OCT" },
+                          @{ @11 : @"NOV" },
+                          @{ @12 : @"DEC" }];
 graphView.yAxisMaxValue = 90;
 graphView.yAxisUnit = @"(customer)";
 graphView.title = @"MONTHLY CUSTOMER";
@@ -50,17 +49,17 @@ plot.strokeColor = [UIColor brownColor];
 plot.fillColor = [UIColor clearColor];
 plot.graphPointColor = [UIColor brownColor];
 plot.graphPoints = @[LMGraphPointMake(CGPointMake(1, 47), @"1", @"47"),
-LMGraphPointMake(CGPointMake(2, 69), @"2", @"69"),
-LMGraphPointMake(CGPointMake(3, 77), @"3", @"77"),
-LMGraphPointMake(CGPointMake(4, 60), @"4", @"60"),
-LMGraphPointMake(CGPointMake(5, 59), @"5", @"59"),
-LMGraphPointMake(CGPointMake(6, 40), @"6", @"40"),
-LMGraphPointMake(CGPointMake(7, 60), @"7", @"60"),
-LMGraphPointMake(CGPointMake(8, 45), @"8", @"45"),
-LMGraphPointMake(CGPointMake(9, 50), @"9", @"50"),
-LMGraphPointMake(CGPointMake(10, 70), @"10", @"70"),
-LMGraphPointMake(CGPointMake(11, 56), @"11", @"56"),
-LMGraphPointMake(CGPointMake(12, 30), @"12", @"30")];
+                     LMGraphPointMake(CGPointMake(2, 69), @"2", @"69"),
+                     LMGraphPointMake(CGPointMake(3, 77), @"3", @"77"),
+                     LMGraphPointMake(CGPointMake(4, 60), @"4", @"60"),
+                     LMGraphPointMake(CGPointMake(5, 59), @"5", @"59"),
+                     LMGraphPointMake(CGPointMake(6, 40), @"6", @"40"),
+                     LMGraphPointMake(CGPointMake(7, 60), @"7", @"60"),
+                     LMGraphPointMake(CGPointMake(8, 45), @"8", @"45"),
+                     LMGraphPointMake(CGPointMake(9, 50), @"9", @"50"),
+                     LMGraphPointMake(CGPointMake(10, 70), @"10", @"70"),
+                     LMGraphPointMake(CGPointMake(11, 56), @"11", @"56"),
+                     LMGraphPointMake(CGPointMake(12, 30), @"12", @"30")];
 graphView.graphPlots = @[plot];
 ```
 

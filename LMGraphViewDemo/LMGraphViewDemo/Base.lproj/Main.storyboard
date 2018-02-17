@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UdA-xA-SEo">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="yCq-SJ-DpJ">
+            <objects>
+                <navigationController id="UdA-xA-SEo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nG2-ct-jdK">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="7fk-vL-jDY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TEk-XF-Ikc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-606" y="139"/>
+        </scene>
+        <!--LMGraphView-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController title="LMGraphView" id="vXZ-lx-hvc" customClass="LMViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1300"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ls-72-NJs">
+                                <rect key="frame" x="0.0" y="64" width="375" height="1236"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJ3-Ar-PsO" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1236"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GuT-eR-SiK" customClass="LMLineGraphView">
+                                                <rect key="frame" x="0.0" y="15" width="375" height="270"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="270" id="Bmu-dI-Zud"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="xAxisGridHidden" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9T-gh-dbf" customClass="LMLineGraphView">
+                                                <rect key="frame" x="0.0" y="300" width="375" height="270"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="270" id="eBI-HI-GjU"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="xAxisGridHidden" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdT-Xa-o0K" customClass="LMLineGraphView">
+                                                <rect key="frame" x="0.0" y="585" width="375" height="270"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="270" id="i54-5A-RHD"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="xAxisGridHidden" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMp-zZ-LzK" customClass="LMLineGraphView">
+                                                <rect key="frame" x="0.0" y="870" width="375" height="270"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="270" id="Ani-SX-sa8"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="xAxisGridHidden" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UMp-zZ-LzK" secondAttribute="bottom" constant="15" id="0SG-hg-ktt"/>
+                                            <constraint firstItem="GuT-eR-SiK" firstAttribute="top" secondItem="mJ3-Ar-PsO" secondAttribute="top" constant="15" id="2UK-Ww-H6f"/>
+                                            <constraint firstItem="UMp-zZ-LzK" firstAttribute="leading" secondItem="mJ3-Ar-PsO" secondAttribute="leading" id="526-hi-VMP"/>
+                                            <constraint firstAttribute="trailing" secondItem="UMp-zZ-LzK" secondAttribute="trailing" id="EQd-Uz-hai"/>
+                                            <constraint firstItem="IdT-Xa-o0K" firstAttribute="top" secondItem="x9T-gh-dbf" secondAttribute="bottom" constant="15" id="O3w-fX-Dlk"/>
+                                            <constraint firstItem="x9T-gh-dbf" firstAttribute="top" secondItem="GuT-eR-SiK" secondAttribute="bottom" constant="15" id="Put-pK-VuV"/>
+                                            <constraint firstItem="UMp-zZ-LzK" firstAttribute="top" secondItem="IdT-Xa-o0K" secondAttribute="bottom" constant="15" id="RKx-KX-d2Y"/>
+                                            <constraint firstItem="IdT-Xa-o0K" firstAttribute="leading" secondItem="mJ3-Ar-PsO" secondAttribute="leading" id="acm-Zg-Svr"/>
+                                            <constraint firstItem="GuT-eR-SiK" firstAttribute="leading" secondItem="mJ3-Ar-PsO" secondAttribute="leading" id="k0c-Xe-Nce"/>
+                                            <constraint firstItem="x9T-gh-dbf" firstAttribute="leading" secondItem="mJ3-Ar-PsO" secondAttribute="leading" id="nji-s1-B39"/>
+                                            <constraint firstAttribute="trailing" secondItem="IdT-Xa-o0K" secondAttribute="trailing" id="qdA-GT-e3x"/>
+                                            <constraint firstAttribute="trailing" secondItem="x9T-gh-dbf" secondAttribute="trailing" id="sqO-FX-XEA"/>
+                                            <constraint firstAttribute="trailing" secondItem="GuT-eR-SiK" secondAttribute="trailing" id="wEk-B3-GGq"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mJ3-Ar-PsO" secondAttribute="bottom" id="8vG-Qa-L5H"/>
+                                    <constraint firstItem="mJ3-Ar-PsO" firstAttribute="leading" secondItem="6Ls-72-NJs" secondAttribute="leading" id="Hka-Ou-8HR"/>
+                                    <constraint firstItem="mJ3-Ar-PsO" firstAttribute="top" secondItem="6Ls-72-NJs" secondAttribute="top" id="TdE-XM-kb5"/>
+                                    <constraint firstAttribute="trailing" secondItem="mJ3-Ar-PsO" secondAttribute="trailing" id="bDB-4n-Hi1"/>
+                                    <constraint firstItem="mJ3-Ar-PsO" firstAttribute="height" secondItem="6Ls-72-NJs" secondAttribute="height" placeholder="YES" id="dUb-54-IQN"/>
+                                    <constraint firstItem="mJ3-Ar-PsO" firstAttribute="width" secondItem="6Ls-72-NJs" secondAttribute="width" id="f9k-6w-i7y"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="6Ls-72-NJs" secondAttribute="bottom" id="97J-a7-TGp"/>
+                            <constraint firstItem="6Ls-72-NJs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="DFi-b6-PfZ"/>
+                            <constraint firstItem="6Ls-72-NJs" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="IIY-b3-pi1"/>
+                            <constraint firstAttribute="trailing" secondItem="6Ls-72-NJs" secondAttribute="trailing" id="ivN-Pu-VJW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="LMGraphView" id="A3w-2F-ZrR"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1300"/>
+                    <connections>
+                        <outlet property="lineGraphView1" destination="GuT-eR-SiK" id="gQn-5n-9ze"/>
+                        <outlet property="lineGraphView2" destination="x9T-gh-dbf" id="gCD-VF-z4P"/>
+                        <outlet property="lineGraphView3" destination="IdT-Xa-o0K" id="gcm-P1-1Ci"/>
+                        <outlet property="lineGraphView4" destination="UMp-zZ-LzK" id="FmC-VX-8rS"/>
+                        <outlet property="scrollView" destination="6Ls-72-NJs" id="4FX-LW-wRE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="167" y="289"/>
+        </scene>
+    </scenes>
+</document>

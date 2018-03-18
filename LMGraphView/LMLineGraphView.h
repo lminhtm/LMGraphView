@@ -17,6 +17,7 @@
 
 @interface LMLineGraphView : UIView
 
+@property (nonatomic, assign) CGFloat xAxisStartGraphPoint;
 @property (nonatomic, strong) NSArray *xAxisValues;
 @property (nonatomic, assign) CGFloat xAxisInterval;
 @property (nonatomic, assign) CGFloat yAxisMaxValue;

@@ -66,6 +66,8 @@
     // Line Graph View 4
     self.lineGraphView4.backgroundColor = [UIColor blackColor];
     self.lineGraphView4.layout.xAxisScrollableOnly = NO;
+    self.lineGraphView4.xAxisStartGraphPoint = 1;
+    self.lineGraphView4.layout.xAxisMargin = 10;
     self.lineGraphView4.delegate = self;
     self.lineGraphView4.xAxisValues = shortXAxisValues;
     self.lineGraphView4.yAxisMaxValue = 90;

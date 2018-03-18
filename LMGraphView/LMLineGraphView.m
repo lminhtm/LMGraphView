@@ -80,6 +80,7 @@
 {
     _xAxisInterval = 1;
     _yAxisMinValue = 0;
+    _xAxisStartGraphPoint = 0;
     
     _layout = [LMGraphLayout new];
     
@@ -107,11 +108,11 @@
     CGFloat contentSizeWidth;
     if (self.layout.xAxisScrollableOnly)
     {
-        contentSizeWidth = self.xAxisMaxValue * self.layout.xAxisIntervalInPx + self.layout.xAxisMargin + MAX(self.layout.xAxisMargin, self.layout.xAxisIntervalInPx/2);
+        contentSizeWidth = self.xAxisMaxValue * self.layout.xAxisIntervalInPx - self.layout.xAxisMargin + MAX(self.layout.xAxisMargin, self.layout.xAxisIntervalInPx/2);
     }
     else
     {
-        contentSizeWidth = W(self);
+        contentSizeWidth = W(self) - self.layout.xAxisMargin;
     }
     
     // Title Label
@@ -172,7 +173,7 @@
     CGFloat contentY = maxfry(self.yAxisUnitLabel);
     self.contentScrollView.frame = CGRectMake(contentX,
                                               contentY,
-                                              W(self) - contentX,
+                                              W(self) - contentX - self.layout.xAxisMargin,
                                               H(self) - contentY);
     self.contentScrollView.contentSize = CGSizeMake(contentSizeWidth, H(self.contentScrollView));
     
@@ -180,7 +181,7 @@
     if (!self.graphContentView) {
         self.graphContentView = [[UIView alloc] init];
 #if DEBUG_MODE
-        self.graphContentView.backgroundColor = [UIColor darkGrayColor];
+        self.graphContentView.backgroundColor = [UIColor brownColor];
 #else
         self.graphContentView.backgroundColor = [UIColor clearColor];
 #endif
@@ -505,9 +506,11 @@
         CGPathAddLineToPoint(yAxisGridPath, NULL, convertedPoint.x, H(self.graphContentView));
     }
     
-    CGPoint rightPoint = CGPointMake(W(self.graphContentView) - self.layout.xAxisLinesWidth, 0);
-    CGPathMoveToPoint(yAxisGridPath, NULL, rightPoint.x + self.layout.xAxisLinesWidth/2, 0);
-    CGPathAddLineToPoint(yAxisGridPath, NULL, rightPoint.x + self.layout.xAxisLinesWidth/2, H(self.graphContentView));
+    if (self.layout.xAxisScrollableOnly) {
+        CGPoint rightPoint = CGPointMake(W(self.graphContentView) - self.layout.xAxisLinesWidth, 0);
+        CGPathMoveToPoint(yAxisGridPath, NULL, rightPoint.x + self.layout.xAxisLinesWidth/2, 0);
+        CGPathAddLineToPoint(yAxisGridPath, NULL, rightPoint.x + self.layout.xAxisLinesWidth/2, H(self.graphContentView));
+    }
     
     // Create yAxisGridLayer
     if (!self.yAxisGridLayer) {
@@ -854,7 +857,7 @@
     
     // Calculate xAxisIntervalInPx
     if (!self.layout.xAxisScrollableOnly && self.xAxisValues.count) {
-        self.layout.xAxisIntervalInPx = MAX(W(self.graphContentView)/(self.xAxisValues.count + 1), 5);
+        self.layout.xAxisIntervalInPx = MAX(W(self.graphContentView)/(self.xAxisValues.count - 1), 5);
     }
     
     // Calculate yAxisInterval
@@ -905,7 +908,8 @@
     CGFloat convertedX = 0;
     CGFloat convertedY = 0;
     
-    convertedX = (graphPoint.x/self.xAxisInterval) * self.layout.xAxisIntervalInPx + self.layout.xAxisMargin + self.layout.xAxisLinesWidth/2;
+    CGFloat realGraphPointX = graphPoint.x - self.xAxisStartGraphPoint;
+    convertedX = (realGraphPointX/self.xAxisInterval) * self.layout.xAxisIntervalInPx + self.layout.xAxisLinesWidth/2;
     
     convertedY = ((graphPoint.y - self.yAxisMinValue)/self.yAxisInterval) * self.yAxisIntervalInPx + self.layout.yAxisLinesWidth/2;
     convertedY = H(self.graphContentView) - convertedY;
@@ -917,9 +921,8 @@
 {
     LMGraphPlot *graphPlot = [self.graphPlots firstObject];
     
-    CGFloat padding = self.layout.xAxisIntervalInPx;
-    CGFloat interval = MAX((W(self.graphContentView) - padding * 2)/(graphPlot.graphPoints.count - 1), 1);
-    NSInteger index = round((touchPoint.x - padding)/interval);
+    CGFloat interval = MAX(W(self.graphContentView)/(graphPlot.graphPoints.count - 1), 1);
+    NSInteger index = round(touchPoint.x/interval);
     index = MIN(MAX(index, 0), graphPlot.graphPoints.count - 1);
     
     LMGraphPoint *graphPoint = [graphPlot.graphPoints objectAtIndex:index];

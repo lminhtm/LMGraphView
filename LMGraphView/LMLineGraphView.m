@@ -233,6 +233,14 @@
         
         // Draw plots
         [self drawPlots];
+        
+        if(self.shouldScrollToRecentData) {
+            ///Scroll to most recent data
+            CGSize contentScrollViewSize = self.contentScrollView.contentSize;
+            if(contentScrollViewSize.width > W(self.contentScrollView)) {
+                [self.contentScrollView scrollRectToVisible:CGRectMake(contentScrollViewSize.width - W(self.contentScrollView), self.contentScrollView.contentOffset.y, contentScrollViewSize.width, contentScrollViewSize.height) animated:YES];
+            }
+        }
     }
     else
     {

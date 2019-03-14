@@ -33,6 +33,8 @@
 
 @property (nonatomic, weak) id<LMLineGraphViewDelegate> delegate;
 
+@property (nonatomic, assign, getter=shouldScrollToRecentData) BOOL scrollToRecentData;
+
 - (void)animateWithDuration:(NSTimeInterval)duration;
 
 - (UIImage *)graphImage;
